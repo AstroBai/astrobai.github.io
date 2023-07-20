@@ -58,7 +58,7 @@ a.active {
     text-decoration: none;
 }
 
-.p a:link {text-decoration:none;color:#568ab5;}    /* unvisited link */
-.p a:visited {text-decoration:none;color:#568ab5;} /* visited link */
-.p a:hover {text-decoration:underline;color:#a9754a;}   /* mouse over link */
-.p a:active {text-decoration:underline;color:#a9754a;}  /* selected link */
+.content a:link {text-decoration:none;color:#568ab5;}    /* unvisited link */
+.content a:visited {text-decoration:none;color:#568ab5;} /* visited link */
+.content a:hover {text-decoration:underline;color:#a9754a;}   /* mouse over link */
+.content a:active {text-decoration:underline;color:#a9754a;}  /* selected link */
