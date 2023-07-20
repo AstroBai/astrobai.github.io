@@ -1,0 +1,64 @@
+body {
+    margin: 10;
+    height: 100%
+}
+
+.container {
+    width: 61.8%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.content {
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* 导航条 */
+.topnav {
+    overflow: hidden;
+    background-color: #333;
+}
+
+/* 导航链接 */
+.topnav a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* 链接 - 修改颜色 */
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+a.active {
+    background-color: #4CAF50;
+    color: white;
+}
+
+
+/* 底部样式 */
+.footer {
+    background-color: #f1f1f1;
+    padding: 5px;
+    text-align: center;
+}
+
+.footer a {
+    float: center;
+    color: #333;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.p a:link {text-decoration:none;color:#568ab5;}    /* unvisited link */
+.p a:visited {text-decoration:none;color:#568ab5;} /* visited link */
+.p a:hover {text-decoration:underline;color:#a9754a;}   /* mouse over link */
+.p a:active {text-decoration:underline;color:#a9754a;}  /* selected link */
