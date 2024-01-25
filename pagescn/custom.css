@@ -1,34 +1,25 @@
 body {
     font-family: 'Arial', sans-serif;
     margin: 10;
-    height: 100%;
-    background-image: url('https://astrobai.github.io/pics/bg.jpg'); /* Replace with your image URL */
-    background-size: cover;
-    background-repeat: no-repeat;
+    height: 100%
 }
 
 .container {
     width: 61.8%;
     margin: 0 auto;
     padding: 20px;
-    position: relative;
-    z-index: 2; /* Ensure the container appears above the background */
 }
 
 .content {
     width: 90%;
     margin: 0 auto;
     padding: 20px;
-    position: relative;
-    z-index: 3; /* Ensure the content appears above the container and background */
 }
 
 /* 导航条 */
 .topnav {
     overflow: hidden;
     background-color: #333;
-    position: relative;
-    z-index: 1; /* Ensure the navigation appears above the background */
 }
 
 /* 导航链接 */
@@ -51,6 +42,7 @@ a.active {
     background-color: #4CAF50;
     color: white;
 }
+
 
 /* 底部样式 */
 .footer {
