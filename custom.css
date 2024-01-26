@@ -1,9 +1,8 @@
 body {
     font-family: 'Arial', sans-serif;
     margin: 10;
-    height: 100%;
-    background-image: url('https://astrobai.github.io/pics/bg.jpg'); /* 替换 'your-image-url.jpg' 为你的图片路径 */
-    background-size: cover; /* 调整背景图像的尺寸，使其覆盖整个容器 */
+    height: 100%
+    background-color: #e6e6e6; /* 设置背景颜色，可以根据需求更改颜色值 */
 }
 
 .container {
@@ -21,7 +20,7 @@ body {
 /* 导航条 */
 .topnav {
     overflow: hidden;
-    background-color: rgba(51, 51, 51, 0.8); /* 设置导航条的背景颜色和透明度 */
+    background-color: #333;
 }
 
 /* 导航链接 */
@@ -44,6 +43,7 @@ a.active {
     background-color: #4CAF50;
     color: white;
 }
+
 
 /* 底部样式 */
 .footer {
