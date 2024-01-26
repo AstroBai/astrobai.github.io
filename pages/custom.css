@@ -1,18 +1,20 @@
 body {
     font-family: 'Arial', sans-serif;
-    margin: 10;
-    height: 100%
+    margin: 10px; /* 添加单位 */
+    height: 100%;
 }
 
 .container {
-    width: 61.8%;
+    width: 70%; /* 调整容器宽度 */
     margin: 0 auto;
     padding: 20px;
+    background-color: #f8f8f8; /* 调整容器背景颜色 */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* 添加阴影效果 */
 }
 
 .content {
-    width: 90%;
-    margin: 0 auto;
+    width: 100%; /* 设置内容区域宽度为100% */
+    margin: 20px auto; /* 调整内容区域的外边距 */
     padding: 20px;
 }
 
@@ -43,7 +45,6 @@ a.active {
     color: white;
 }
 
-
 /* 底部样式 */
 .footer {
     background-color: #f1f1f1;
@@ -58,8 +59,3 @@ a.active {
     padding: 14px 16px;
     text-decoration: none;
 }
-
-.content a:link {text-decoration:none;color:#568ab5;}    /* unvisited link */
-.content a:visited {text-decoration:none;color:#568ab5;} /* visited link */
-.content a:hover {text-decoration:underline;color:#a9754a;}   /* mouse over link */
-.content a:active {text-decoration:underline;color:#a9754a;}  /* selected link */
