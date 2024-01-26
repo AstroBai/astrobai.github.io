@@ -47,27 +47,15 @@ a.active {
 
 /* 底部样式 */
 .footer {
-    background-color: #333; /* 修改底部背景颜色 */
-    padding: 10px;
+    background-color: #f1f1f1;
+    padding: 5px;
     text-align: center;
 }
 
 .footer a {
-    color: #fff; /* 修改底部链接颜色 */
-    text-decoration: none;
+    float: center;
+    color: #333;
+    text-align: center;
     padding: 14px 16px;
-    display: inline-block; /* 使底部链接水平排列 */
-    margin: 0 10px; /* 调整链接间距 */
-}
-
-.content a:link,
-.content a:visited {
     text-decoration: none;
-    color: #568ab5;
-}
-
-.content a:hover,
-.content a:active {
-    text-decoration: underline;
-    color: #a9754a;
 }
