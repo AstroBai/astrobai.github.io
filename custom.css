@@ -2,7 +2,6 @@ body {
     font-family: 'Arial', sans-serif;
     margin: 10;
     height: 100%
-    background-color: #e6e6e6; /* 设置背景颜色，可以根据需求更改颜色值 */
 }
 
 .container {
