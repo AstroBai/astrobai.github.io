@@ -7,7 +7,8 @@
 
     <title>研究课题</title>
     <link rel="icon" href="https://astrobai.github.io/pics/icon.jpg" sizes="16x16">
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    
 </head>
 
 <body>
@@ -28,8 +29,25 @@
         <div class="content">
 
             <h2>研究课题</h2>
-            <p>利用宇宙学数据限制 DGP 修正模型（2023-2024）。</p>
+            <h3>FREmu: \(f(R)\) 引力框架下非线性功率谱的快速预测 (2023 - )</h3>
+            <p>为了在Stage-IV巡天中限制非线性尺度的引力效应，需要精确计算修改引力模型的可观测量，如非线性物质功率谱。
+                然而，这些可观测量通常是从n体模拟中计算出来的，这将耗费大量资源。
+                在这项工作中，我们发布了一个模拟器FREmu，它可以为\(f(R)\)引力模型提供功率谱的快速和精确的预测。
+                我们的模拟器使用人工神经网络构建了从参数到功率谱的映射，训练数据来自Quijote-MG模拟。
+                FREmu具有7维参数空间，包括\(\Omega_m\)、\(\Omega_b\)、\(h\)、\(n_s\)、\(\sigma_8\)、\(M_{\nu}\)、\(f_{R_0}\)，在大多数情况下其精度优于5%。</p>
 
+            <h3>用宇宙学数据限制DGP修正模型（2023 - 2024）。</h3>
+            <p>在宇宙学中，DGP引力模型为大尺度结构的形成提供了屏蔽效应，但在没有暗能量的情况下无法符合宇宙学的观测。
+                在这项工作中，我们研究了DGP引力模型下的宇宙学，重点研究了在该引力框架下的暗能量模型，使得其宇宙学符合观测。
+                我们考虑了两种形式的暗能量，分别为brane dark energy和bulk dark energy。
+                为了限制模型，我们使用了一系列观测数据集，如cosmic chronometers（CC）、Ia型超新星（SNIa）、重子声学振荡（BAO）和宇宙微波背景辐射（CMB）。
+                我们用Markov Chain Monte Carlo（MCMC）方法联合分析这些数据集，得到了与数据最佳拟合的暗能量状态方程，并且分析了DGP引力框架下的暗能量可能来源。</p>
+
+            <h3>用深度学习加速宇宙学N体模拟（2024 - ）</h3>
+            <p>宇宙学N体模拟在现代宇宙学中起着至关重要的作用。
+                然而，精确的模拟将耗费大量资源，因此如何使模拟更加高效是一个非常有趣的问题。
+                我们现在正在尝试使用深度学习技术加速N体模拟，而不会失去任何精度。</p>
+            
         </div>
 
         <div class="footer">
