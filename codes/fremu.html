@@ -1,1 +1,106 @@
 
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="custom.css" rel="stylesheet"></link>
+    <meta charset="utf-8">
+
+    <title>FREmu</title>
+    <link rel="icon" href="https://astrobai.github.io/pics/icon.jpg" sizes="16x16">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="topnav">
+            <a href="https://astrobai.github.io/index.html">Home</a>
+            <a href="https://astrobai.github.io/pages/pub.html">Publications</a>
+            <a href="https://astrobai.github.io/pages/res.html">Research</a>
+            <a class="active" href="https://astrobai.github.io/pages/codes.html">Codes</a>
+            <a href="https://astrobai.github.io/pages/tk.html">Talks</a>
+            <a href="https://astrobai.github.io/pages/cv.html">CV</a>
+            <a href="https://astrobai.github.io/pages/nt.html">Notes</a>
+            <a href="https://astrobai.github.io/pages/gal.html">Gallery</a>
+            <a href="https://astrobai.github.io/pages/lk.html">Links</a>
+        </div>
+
+        <div class="content">
+
+            <h1>Emulator Documentation</h1>
+
+    <h2>Overview</h2>
+
+    <p>The emulator program is designed to simulate the power spectrum of large-scale structures in the universe using neural networks. It provides functionalities to set cosmological parameters, retrieve power spectra, boost functions, and error estimates.</p>
+
+    <h2>Installation</h2>
+
+    <ol>
+        <li>Clone the repository from GitHub:</li>
+        <code>git clone https://github.com/your_repo.git</code>
+        <li>Install the required dependencies:</li>
+        <code>pip install -r requirements.txt</code>
+    </ol>
+
+    <h2>Usage</h2>
+
+    <h3>Initialization</h3>
+
+    <pre><code>from emulator import emulator
+
+# Initialize the emulator
+em = emulator()</code></pre>
+
+    <h3>Set Cosmological Parameters</h3>
+
+    <pre><code># Set cosmological parameters
+em.set_cosmo(Om=0.3, Ob=0.05, h=0.7, ns=1.0, sigma8=0.8, mnu=0.05, fR0=-3e-5)</code></pre>
+
+    <h3>Get Power Spectrum</h3>
+
+    <pre><code># Get power spectrum at redshift z and wave numbers k
+power_spectrum = em.get_power_spectrum(k=k_values, z=0.5)</code></pre>
+
+    <h3>Get Boost Function</h3>
+
+    <pre><code># Get boost function at redshift z and wave numbers k
+boost_function = em.get_boost(k=k_values, z=0.5)</code></pre>
+
+    <h3>Get Error Estimate</h3>
+
+    <pre><code># Get error estimate at wave number k
+error_estimate = em.get_error(k=0.1)</code></pre>
+
+    <h2>Methods</h2>
+
+    <h3><code>set_cosmo(Om, Ob, h, ns, sigma8, mnu, fR0)</code></h3>
+
+    <p>Set the cosmological parameters for the emulator.</p>
+
+    <ul>
+        <li><code>Om</code>: Matter density parameter.</li>
+        <li><code>Ob</code>: Baryon density parameter.</li>
+        <li><code>h</code>: Hubble constant divided by 100 km/s/Mpc.</li>
+        <li><code>ns</code>: Scalar spectral index.</li>
+        <li><code>sigma8</code>: Power spectrum normalization.</li>
+        <li><code>mnu</code>: Sum of neutrino masses (in eV).</li>
+        <li><code>fR0</code>: Value of the scalar field f(R) at z=0.</li>
+    </ul>
+
+    <!-- Other method descriptions here -->
+
+    <h2>Notes</h2>
+
+    <ul>
+        <li>The emulator relies on pre-trained neural network models and cached data stored in the <code>cache</code> directory.</li>
+        <li>Ensure that cosmological parameters are set before retrieving power spectra or boost functions.</li>
+    </ul>
+
+        </div>
+    </div>
+</body>
+
+</html>
