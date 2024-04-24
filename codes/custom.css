@@ -1,1 +1,62 @@
 
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 10px; /* 添加单位 */
+    height: 100%;
+}
+
+.container {
+    width: 70%; /* 调整容器宽度 */
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f8f8f8; /* 调整容器背景颜色 */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* 添加阴影效果 */
+}
+
+.content {
+    width: 100%; /* 设置内容区域宽度为100% */
+    margin: 20px auto; /* 调整内容区域的外边距 */
+    padding: 20px;
+}
+
+/* 导航条 */
+.topnav {
+    overflow: hidden;
+    background-color: #333;
+}
+
+/* 导航链接 */
+.topnav a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* 链接 - 修改颜色 */
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+a.active {
+    background-color: #4CAF50;
+    color: white;
+}
+
+/* 底部样式 */
+.footer {
+    background-color: #f1f1f1;
+    padding: 5px;
+    text-align: center;
+}
+
+.footer a {
+    float: center;
+    color: #333;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
