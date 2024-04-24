@@ -70,5 +70,14 @@ pre {
 
 code {
     font-family: 'Courier New', Courier, monospace;
+    display: block;
+    padding: 5px;
+    color: #333;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    overflow-x: auto;
 }
+
+/* Add syntax highlighting styles here */
+
 
