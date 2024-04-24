@@ -38,7 +38,7 @@
 
     <h2>Overview</h2>
 
-    <p>FREmu is designed to predict the non-linear power spectrum of large-scale structures in the universe using neural networks. It provides functionalities to set cosmological parameters, retrieve power spectra, boost functions, and error estimates.</p>
+    <p>FREmu is designed to predict the non-linear power spectrum of large-scale structures in the universe using neural networks. It provides functionalities to set cosmological parameters, retrieve power spectra, boost factors, and error estimates.</p>
 
     <h2>Installation</h2>
 
@@ -63,8 +63,8 @@ power_spectrum = emu.get_power_spectrum(k=k_values, z=0.5)</code></pre>
 
     <h3>Get Boost</h3>
 
-    <pre><code># Get boost function at redshift z and wave numbers k
-boost_function = emu.get_boost(k=k_values, z=0.5)</code></pre>
+    <pre><code># Get boost factor at redshift z and wave numbers k
+boost_factor = emu.get_boost(k=k_values, z=0.5)</code></pre>
 
     <h3>Get Error Estimate</h3>
 
@@ -93,13 +93,13 @@ error_estimate = emu.get_error(k=0.1)</code></pre>
     </ul>
 
     <h3>get_boost(k=None, z=None, to_linear=False, return_k_values=False)</h3>
-    <p>Get the boost function for given wavenumbers and redshift.</p>
+    <p>Get the boost factor for given wavenumbers and redshift.</p>
     <ul>
         <li><code>k</code> (array_like, optional): The wavenumbers. Default is None, which uses the wavenumbers defined in the emulator.</li>
         <li><code>z</code> (float, optional): The redshift. Default is None, which uses z=0.0.</li>
         <li><code>to_linear</code> (bool, optional): Whether to convert the boost to linear power spectrum. Default is False.</li>
         <li><code>return_k_values</code> (bool, optional): Whether to return the wavenumbers along with the boost values. Default is False.</li>
-        <li>Returns: The boost function at specified wavenumbers and redshift, or the wavenumbers along with the boost values if <code>return_k_values</code> is True.</li>
+        <li>Returns: The boost factor at specified wavenumbers and redshift, or the wavenumbers along with the boost values if <code>return_k_values</code> is True.</li>
     </ul>
 
     <h3>get_power_spectrum(k=None, z=None, return_k_values=False, get_fid=False)</h3>
@@ -122,7 +122,7 @@ error_estimate = emu.get_error(k=0.1)</code></pre>
     <h2>Notes</h2>
 
     <ul>
-        <li>Ensure that cosmological parameters are set before retrieving power spectra or boost functions.</li>
+        <li>Ensure that cosmological parameters are set before retrieving power spectra or boost factors.</li>
     </ul>
 
         </div>
