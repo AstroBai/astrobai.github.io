@@ -60,3 +60,15 @@ a.active {
     padding: 14px 16px;
     text-decoration: none;
 }
+
+pre {
+    background-color: #f4f4f4;
+    padding: 10px;
+    overflow-x: auto;
+    border-radius: 5px;
+}
+
+code {
+    font-family: 'Courier New', Courier, monospace;
+}
+
