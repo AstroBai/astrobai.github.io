@@ -66,6 +66,7 @@ pre {
     padding: 10px;
     border-radius: 5px;
     overflow-x: auto;
+    margin-right: 10px;
 }
 
 code {
