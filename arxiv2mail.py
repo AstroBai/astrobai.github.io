@@ -30,15 +30,15 @@ def generate_html(articles):
     <body>
         <div class="container">
             <div class="topnav">
-                <a href="index.html">Home</a>
-                <a href="pages/pub.html">Publications</a>
-                <a href="pages/res.html">Research</a>
-                <a href="pages/codes.html">Codes</a>
-                <a href="pages/tk.html">Talks</a>
-                <a href="pages/cv.html">CV</a>
-                <a href="pages/nt.html">Notes</a>
-                <a href="pages/gal.html">Gallery</a>
-                <a class="active" href="pages/lk.html">Links</a>
+                <a href="https://astrobai.github.io/index.html">Home</a>
+                <a href="https://astrobai.github.io/pages/pub.html">Publications</a>
+                <a href="https://astrobai.github.io/pages/res.html">Research</a>
+                <a href="https://astrobai.github.io/pages/codes.html">Codes</a>
+                <a href="https://astrobai.github.io/pages/tk.html">Talks</a>
+                <a href="https://astrobai.github.io/pages/cv.html">CV</a>
+                <a href="https://astrobai.github.io/pages/nt.html">Notes</a>
+                <a href="https://astrobai.github.io/pages/gal.html">Gallery</a>
+                <a class="active" href="https://astrobai.github.io/pages/lk.html">Links</a>
             </div>
             <div class="content">
                 <h1>Daily arXiv astro-ph.CO Articles</h1>
