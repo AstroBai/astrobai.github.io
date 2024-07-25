@@ -1,7 +1,5 @@
 import feedparser
-import smtplib
-from email.mime.multipart import MIMEMultipart
-from email.mime.text import MIMEText
+from jinja2 import Template
 
 def fetch_arxiv_articles():
     url = 'http://export.arxiv.org/rss/astro-ph.CO'
@@ -17,49 +15,53 @@ def fetch_arxiv_articles():
         articles.append(article)
     return articles
 
-def format_articles_for_github(articles):
-    formatted = "# Daily arXiv astro-ph.CO Articles\n\n"
-    for article in articles:
-        formatted += f"## {article['title']}\n"
-        formatted += f"**Authors:** {article['authors']}\n\n"
-        formatted += f"**Summary:** {article['summary']}\n\n"
-        formatted += f"[Read more]({article['link']})\n\n"
-    return formatted
-
-def send_email(articles, recipient_email):
-    sender_email = "astrobaijc@gmail.com"
-    password = "xgka vivd yfwb ilpx"
-
-    msg = MIMEMultipart()
-    msg['From'] = sender_email
-    msg['To'] = recipient_email
-    msg['Subject'] = "Daily arXiv astro-ph.CO Articles"
-
-    body = ""
-    for article in articles:
-        body += f"Title: {article['title']}\n"
-        body += f"Authors: {article['authors']}\n"
-        body += f"Summary: {article['summary']}\n"
-        body += f"Link: {article['link']}\n\n"
-    
-    msg.attach(MIMEText(body, 'plain'))
-
-    server = smtplib.SMTP('smtp.gmail.com', 587)
-    server.starttls()
-    server.login(sender_email, password)
-    text = msg.as_string()
-    server.sendmail(sender_email, recipient_email, text)
-    server.quit()
+def generate_html(articles):
+    html_template = """
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <link href="custom.css" rel="stylesheet"></link>
+        <meta charset="utf-8">
+        <title>Daily arXiv astro-ph.CO Articles</title>
+        <link rel="icon" href="https://astrobai.github.io/pics/icon.jpg" sizes="16x16">
+    </head>
+    <body>
+        <div class="container">
+            <div class="topnav">
+                <a class="active" href="https://astrobai.github.io/index.html">Home</a>
+                <a href="https://astrobai.github.io/pages/pub.html">Publications</a>
+                <a href="https://astrobai.github.io/pages/res.html">Research</a>
+                <a href="https://astrobai.github.io/pages/codes.html">Codes</a>
+                <a href="https://astrobai.github.io/pages/tk.html">Talks</a>
+                <a href="https://astrobai.github.io/pages/cv.html">CV</a>
+                <a href="https://astrobai.github.io/pages/nt.html">Notes</a>
+                <a href="https://astrobai.github.io/pages/gal.html">Gallery</a>
+                <a href="https://astrobai.github.io/pages/lk.html">Links</a>
+            </div>
+            <div class="content">
+                <h1>Daily arXiv astro-ph.CO Articles</h1>
+                {% for article in articles %}
+                <div class="article">
+                    <h2>{{ article.title }}</h2>
+                    <p><strong>Authors:</strong> {{ article.authors }}</p>
+                    <p><strong>Summary:</strong> {{ article.summary }}</p>
+                    <p><a href="{{ article.link }}">Read more</a></p>
+                </div>
+                <hr>
+                {% endfor %}
+            </div>
+        </div>
+    </body>
+    </html>
+    """
+    template = Template(html_template)
+    html_content = template.render(articles=articles)
+    with open('arxiv.html', 'w', encoding='utf-8') as file:
+        file.write(html_content)
 
 def main():
     articles = fetch_arxiv_articles()
-    formatted_articles = format_articles_for_github(articles)
-
-    with open('index.md', 'w') as file:
-        file.write(formatted_articles)
-
-    send_email(articles, "astrobaijc@gmail.com")
+    generate_html(articles)
 
 if __name__ == "__main__":
     main()
-
