@@ -2,7 +2,7 @@ name: Update arXiv Articles
 
 on:
   schedule:
-    - cron: '40 6 * * *'  # 每天8点运行
+    - cron: '0 8 * * *'  # 每天8点运行
   push:
     branches:
       - main
@@ -21,7 +21,7 @@ jobs:
           python-version: '3.x'
 
       - name: Install dependencies
-        run: pip install feedparser
+        run: pip install feedparser jinja2
 
       - name: Run script
         run: python arxiv2mail.py
