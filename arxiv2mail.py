@@ -56,7 +56,7 @@ def generate_html(articles):
     """
     template = Template(html_template)
     html_content = template.render(articles=articles)
-    with open('pages/arxiv.html', 'w', encoding='utf-8') as file:
+    with open('./pages/arxiv.html', 'w', encoding='utf-8') as file:
         file.write(html_content)
 
 def main():
