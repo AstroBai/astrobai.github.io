@@ -2,7 +2,7 @@ name: Update arXiv Articles
 
 on:
   schedule:
-    - cron: '30 6 * * *'  # utc time
+    - cron: '30 6 * * *'  # 每天8点运行
   push:
     branches:
       - main
@@ -33,3 +33,10 @@ jobs:
           git add index.md
           git commit -m "Update arXiv articles"
           git push
+
+      - name: Push changes
+        env:
+          ACTIONS_DEPLOY_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+        run: |
+          git remote set-url origin https://x-access-token:${{ secrets.ACTIONS_DEPLOY_KEY }}@github.com/${{ github.repository }}.git
+          git push origin main
