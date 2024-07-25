@@ -9,7 +9,7 @@ def fetch_arxiv_articles():
         article = {
             'title': entry.title,
             'authors': entry.author,
-            'summary': entry.summary,
+            'summary': entry.summary.replace('$$', '\\(').replace('$$', '\\)'),
             'link': entry.link
         }
         articles.append(article)
@@ -20,23 +20,25 @@ def generate_html(articles):
     <!DOCTYPE html>
     <html>
     <head>
-        <link href="custom.css" rel="stylesheet"></link>
+        <link href="custom.css" rel="stylesheet">
         <meta charset="utf-8">
         <title>Daily arXiv astro-ph.CO Articles</title>
         <link rel="icon" href="https://astrobai.github.io/pics/icon.jpg" sizes="16x16">
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     </head>
     <body>
         <div class="container">
             <div class="topnav">
-                <a class="active" href="https://astrobai.github.io/index.html">Home</a>
-                <a href="https://astrobai.github.io/pages/pub.html">Publications</a>
-                <a href="https://astrobai.github.io/pages/res.html">Research</a>
-                <a href="https://astrobai.github.io/pages/codes.html">Codes</a>
-                <a href="https://astrobai.github.io/pages/tk.html">Talks</a>
-                <a href="https://astrobai.github.io/pages/cv.html">CV</a>
-                <a href="https://astrobai.github.io/pages/nt.html">Notes</a>
-                <a href="https://astrobai.github.io/pages/gal.html">Gallery</a>
-                <a href="https://astrobai.github.io/pages/lk.html">Links</a>
+                <a href="index.html">Home</a>
+                <a href="pages/pub.html">Publications</a>
+                <a href="pages/res.html">Research</a>
+                <a href="pages/codes.html">Codes</a>
+                <a href="pages/tk.html">Talks</a>
+                <a href="pages/cv.html">CV</a>
+                <a href="pages/nt.html">Notes</a>
+                <a href="pages/gal.html">Gallery</a>
+                <a class="active" href="pages/lk.html">Links</a>
             </div>
             <div class="content">
                 <h1>Daily arXiv astro-ph.CO Articles</h1>
@@ -44,7 +46,7 @@ def generate_html(articles):
                 <div class="article">
                     <h2>{{ article.title }}</h2>
                     <p><strong>Authors:</strong> {{ article.authors }}</p>
-                    <p><strong>Summary:</strong> {{ article.summary }}</p>
+                    <p><strong>Summary:</strong> {{ article.summary | safe }}</p>
                     <p><a href="{{ article.link }}">Read more</a></p>
                 </div>
                 <hr>
