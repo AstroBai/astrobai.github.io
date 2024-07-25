@@ -2,41 +2,21 @@ name: Update arXiv Articles
 
 on:
   schedule:
-    - cron: '0 2 * * *'  # 每天8点运行
-  push:
-    branches:
-      - main
+    - cron: '0 2 * * *'  # utc time
 
 jobs:
   update-arxiv:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-
+    
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
           python-version: '3.x'
 
       - name: Install dependencies
-        run: pip install feedparser jinja2
+        run: pip install feedparser
 
       - name: Run script
         run: python arxiv2mail.py
-
-      - name: Commit changes
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add ./pages/arxiv.html
-          git commit -m "Update arXiv articles"
-          git push
-
-      - name: Push changes
-        env:
-          ACTIONS_DEPLOY_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}
-        run: |
-          git remote set-url origin https://x-access-token:${{ secrets.ACTIONS_DEPLOY_KEY }}@github.com/${{ github.repository }}.git
-          git push origin main
