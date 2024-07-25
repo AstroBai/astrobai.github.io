@@ -2,7 +2,7 @@ name: Update arXiv Articles
 
 on:
   schedule:
-    - cron: '30 6 * * *'  # 每天8点运行
+    - cron: '35 6 * * *'  # 每天8点运行
   push:
     branches:
       - main
