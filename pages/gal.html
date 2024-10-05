@@ -1,15 +1,94 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <link href="custom.css" rel="stylesheet">
-    </link>
     <meta charset="utf-8">
-
     <title>Gallery</title>
     <link rel="icon" href="https://astrobai.github.io/pics/icon.jpg" sizes="16x16">
 
+    <style>
+        /* Basic styles for the gallery */
+        .slideshow-container {
+            max-width: 1000px;
+            position: relative;
+            margin: auto;
+        }
 
+        /* Hide all images by default */
+        .mySlides {
+            display: none;
+        }
+
+        /* Style for the images */
+        img {
+            vertical-align: middle;
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Add animation */
+        .fade {
+            animation-name: fade;
+            animation-duration: 1.5s;
+        }
+
+        @keyframes fade {
+            from {
+                opacity: 0.4;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Next and previous buttons */
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+        }
+
+        /* Position the "next button" to the right */
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        /* On hover, add a black background color with a little bit see-through */
+        .prev:hover, .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        /* Caption text */
+        .text {
+            color: #f2f2f2;
+            font-size: 15px;
+            padding: 8px 12px;
+            position: absolute;
+            bottom: 8px;
+            width: 100%;
+            text-align: center;
+        }
+
+        /* Number text (1/4 etc) */
+        .numbertext {
+            color: #f2f2f2;
+            font-size: 12px;
+            padding: 8px 12px;
+            position: absolute;
+            top: 0;
+        }
+    </style>
 </head>
 
 <body>
@@ -27,59 +106,69 @@
             <a class="active" href="https://astrobai.github.io/pages/gal.html">Gallery</a>
         </div>
 
-        <div class="content">
-            <h2>Gallery</h2>
-            <table cellspacing="5" align="center" border="1">
-                <tr>
-                    <td align="center">
-                        <p>Startrails Shoot By Me</p>
-                    </td>
-                    <td>
-                        <a target="_blank" href="https://astrobai.github.io/pics/ST2.jpg">
-                        <img src="https://astrobai.github.io/pics/ST2.jpg" alt="Startrails Shoot By Me" width="400">
-                        </a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td align="center">
-                        <p>Solar Spectrum By Me</p>
-                    </td>
-                    <td>
-                        <a target="_blank" href="https://astrobai.github.io/pics/SS.jpg">
-                        <img src="https://astrobai.github.io/pics/SS.jpg" alt="Solar Spectrum By Me" width="400">
-                        </a>
-                    </td>
-                </tr>
-            
-                <tr>
-                    <td align="center">
-                       <p>Moon Shoot by Me</p>
-                    </td>
-                    <td>
-                        <a target="_blank" href="https://astrobai.github.io/pics/moon.jpg">
-                        <img src="https://astrobai.github.io/pics/moon.jpg" alt="Moon Shoot by Me" width="400">
-                        </a>
-                    </td>
-                </tr>
+        <div class="slideshow-container">
+            <!-- First Slide -->
+            <div class="mySlides fade">
+                <div class="numbertext">1 / 4</div>
+                <img src="https://astrobai.github.io/pics/ST2.jpg" alt="Startrails Shoot By Me">
+                <div class="text">Startrails Shoot By Me</div>
+            </div>
 
-                <tr>
-                    <td align="center">
-                       <p>Roses</p>
-                    </td>
-                    <td>
-                        <a target="_blank" href="https://astrobai.github.io/pics/rose.jpg">
-                        <img src="https://astrobai.github.io/pics/rose.jpg" alt="Roses" width="400">
-                        </a>
-                    </td>
-                </tr>
-            </table>
-                
-            
+            <!-- Second Slide -->
+            <div class="mySlides fade">
+                <div class="numbertext">2 / 4</div>
+                <img src="https://astrobai.github.io/pics/SS.jpg" alt="Solar Spectrum By Me">
+                <div class="text">Solar Spectrum By Me</div>
+            </div>
 
+            <!-- Third Slide -->
+            <div class="mySlides fade">
+                <div class="numbertext">3 / 4</div>
+                <img src="https://astrobai.github.io/pics/moon.jpg" alt="Moon Shoot by Me">
+                <div class="text">Moon Shoot by Me</div>
+            </div>
+
+            <!-- Fourth Slide -->
+            <div class="mySlides fade">
+                <div class="numbertext">4 / 4</div>
+                <img src="https://astrobai.github.io/pics/rose.jpg" alt="Roses">
+                <div class="text">Roses</div>
+            </div>
+
+            <!-- Next and previous buttons -->
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
         </div>
 
+        <br>
+
     </div>
+
+    <script>
+        let slideIndex = 0;
+        showSlides();
+
+        // Function to show slides
+        function showSlides() {
+            let slides = document.getElementsByClassName("mySlides");
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {
+                slideIndex = 1;
+            }
+            slides[slideIndex - 1].style.display = "block";
+            setTimeout(showSlides, 5000); // Change image every 5 seconds
+        }
+
+        // Next/previous controls
+        function plusSlides(n) {
+            slideIndex += n - 1;
+            showSlides();
+        }
+    </script>
+
 </body>
 
 </html>
