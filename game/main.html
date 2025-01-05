@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASTROLIFE Game</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .game-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        .header {
+            font-size: 24px;
+            margin: 20px;
+        }
+        .game-options {
+            display: flex;
+            flex-direction: column;
+            width: 300px;
+            margin-bottom: 20px;
+        }
+        .game-options label {
+            margin-bottom: 5px;
+        }
+        .game-options input, .game-options select {
+            margin-bottom: 15px;
+        }
+        .action-buttons {
+            display: flex;
+            justify-content: space-evenly;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        .action-buttons button {
+            width: 100px;
+        }
+        .status-table {
+            width: 100%;
+            margin-top: 20px;
+        }
+        .intro-text {
+            margin: 20px 0;
+            text-align: center;
+        }
+        .image-container {
+            margin: 20px 0;
+        }
+        .author-footer {
+            margin-top: 30px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <div class="header">Welcome to ASTROLIFE!</div>
+        
+        <div class="game-options">
+            <label for="player-name">Enter your player name:</label>
+            <input type="text" id="player-name" class="form-control" placeholder="Player Name">
+
+            <label for="game-rounds">Select game rounds:</label>
+            <select id="game-rounds" class="form-control">
+                <option value="Fast 50">Fast 50</option>
+                <option value="Medium 100">Medium 100</option>
+                <option value="Slow 500">Slow 500</option>
+                <option value="Marathon 1000">Marathon 1000</option>
+            </select>
+
+            <label for="difficulty">Select difficulty:</label>
+            <select id="difficulty" class="form-control">
+                <option value="Bachelor">Bachelor</option>
+                <option value="Master">Master</option>
+                <option value="Doctor">Doctor</option>
+                <option value="Professor">Professor</option>
+                <option value="God (Very Slow)">God (Very Slow)</option>
+            </select>
+
+            <button id="start-button" class="btn btn-dark btn-block">Start Game</button>
+        </div>
+
+        <div class="intro-text">
+            <p><strong>ASTROLIFE Rules:</strong><br>
+            Try to get more score through actions in finite steps.<br>
+            You can see every player's move in the message box.<br>
+            The player with the highest score is the winner.<br>
+            The winner will win the Nobel Prize.<br>
+            Good Luck!</p>
+        </div>
+
+        <div class="image-container">
+            <img src="figures/astroboy.png" alt="Astroboy" class="img-fluid" style="max-width: 560px; max-height: 500px;">
+        </div>
+
+        <div class="action-buttons">
+            <button class="btn btn-outline-dark" onclick="takeAction('Observe')">Observe</button>
+            <button class="btn btn-outline-dark" onclick="takeAction('Research')">Research</button>
+            <button class="btn btn-outline-dark" onclick="takeAction('Design Telescope')">Design Telescope</button>
+            <button class="btn btn-outline-dark" onclick="takeAction('Apply for Funding')">Apply for Funding</button>
+            <button class="btn btn-outline-dark" onclick="takeAction('Attend Conference')">Attend Conference</button>
+        </div>
+
+        <table class="table table-bordered status-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Observations</th>
+                    <th>Funding</th>
+                    <th>Reputation</th>
+                    <th>Telescope</th>
+                    <th>Achievements</th>
+                    <th>Score</th>
+                </tr>
+            </thead>
+            <tbody id="status-table-body">
+                <!-- Player statuses will be dynamically added here -->
+            </tbody>
+        </table>
+
+        <div class="author-footer">
+            <p>Author: Jiachen Bai | Version: 0.0</p>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
