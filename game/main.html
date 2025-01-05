@@ -18,6 +18,7 @@
         }
         .container canvas {
             width: 100%;
+            height: 500px; /* Set a fixed height for the canvas */
         }
         .controls {
             width: 30%;
@@ -36,6 +37,10 @@
             color: white;
             border: none;
             border-radius: 5px;
+        }
+        #celestialSphere {
+            width: 100%;
+            height: 500px; /* Set a fixed height for Plotly container */
         }
     </style>
 </head>
@@ -66,7 +71,7 @@
     </div>
 
     <script>
-        let scene, camera, renderer, starGeometry, starMaterial, starMesh, celestialData;
+        let scene, camera, renderer, starGeometry, starMaterial, starMesh;
 
         // Function to generate stars based on density and size
         function generateStars(density, cubeSize) {
@@ -101,19 +106,16 @@
             scene = new THREE.Scene();
             camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
             renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('starCanvas') });
-            renderer.setSize(window.innerWidth * 0.45, window.innerHeight * 0.45);
+            renderer.setSize(window.innerWidth * 0.45, 500); // Set the height explicitly
             document.body.appendChild(renderer.domElement);
 
             starGeometry = new THREE.BufferGeometry();
             const positions = [];
-            const sizes = [];
             stars.forEach(star => {
                 positions.push(star.x, star.y, star.z);
-                const size = Math.max(0.1, Math.min(radius / (Math.sqrt(star.x * star.x + star.y * star.y + star.z * star.z) + 1), 1));
-                sizes.push(size);
             });
             starGeometry.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
-            starMaterial = new THREE.PointsMaterial({ size: 0.2, sizeAttenuation: true, transparent: true, opacity: 0.6 });
+            starMaterial = new THREE.PointsMaterial({ size: 0.1, color: 0xffffff });
             starMesh = new THREE.Points(starGeometry, starMaterial);
             scene.add(starMesh);
             camera.position.z = 50;
