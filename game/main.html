@@ -3,128 +3,171 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ASTROLIFE Game</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Cosmology Game</title>
     <style>
-        .game-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 20px;
-        }
-        .header {
-            font-size: 24px;
-            margin: 20px;
-        }
-        .game-options {
-            display: flex;
-            flex-direction: column;
-            width: 300px;
-            margin-bottom: 20px;
-        }
-        .game-options label {
-            margin-bottom: 5px;
-        }
-        .game-options input, .game-options select {
-            margin-bottom: 15px;
-        }
-        .action-buttons {
-            display: flex;
-            justify-content: space-evenly;
-            width: 100%;
-            margin-bottom: 20px;
-        }
-        .action-buttons button {
-            width: 100px;
-        }
-        .status-table {
-            width: 100%;
-            margin-top: 20px;
-        }
-        .intro-text {
-            margin: 20px 0;
+        body {
+            font-family: Arial, sans-serif;
             text-align: center;
+            margin-top: 50px;
         }
-        .image-container {
-            margin: 20px 0;
+        h1 {
+            color: #4A90E2;
         }
-        .author-footer {
-            margin-top: 30px;
-            text-align: center;
+        pre {
+            font-family: monospace;
+            background-color: #f4f4f4;
+            padding: 10px;
+            border: 1px solid #ddd;
+            white-space: pre-wrap;
+            word-wrap: break-word;
         }
     </style>
 </head>
 <body>
-    <div class="game-container">
-        <div class="header">Welcome to ASTROLIFE!</div>
-        
-        <div class="game-options">
-            <label for="player-name">Enter your player name:</label>
-            <input type="text" id="player-name" class="form-control" placeholder="Player Name">
+    <h1>Welcome to the Cosmology Game</h1>
+    <pre id="game-log"></pre>
 
-            <label for="game-rounds">Select game rounds:</label>
-            <select id="game-rounds" class="form-control">
-                <option value="Fast 50">Fast 50</option>
-                <option value="Medium 100">Medium 100</option>
-                <option value="Slow 500">Slow 500</option>
-                <option value="Marathon 1000">Marathon 1000</option>
-            </select>
+    <script>
+        class Player {
+            constructor(name, isHuman = true) {
+                this.name = name;
+                this.isHuman = isHuman;
+                this.actions = ['observe', 'research', 'design_telescope', 'apply_funding', 'attend_conference'];
+                this.reset();
+            }
 
-            <label for="difficulty">Select difficulty:</label>
-            <select id="difficulty" class="form-control">
-                <option value="Bachelor">Bachelor</option>
-                <option value="Master">Master</option>
-                <option value="Doctor">Doctor</option>
-                <option value="Professor">Professor</option>
-                <option value="God (Very Slow)">God (Very Slow)</option>
-            </select>
+            reset() {
+                this.funding = 1000;
+                this.reputation = 0;
+                this.observations = 0;
+                this.telescope = 1.0;
+                this.achievements = 0;
+                this.credit = 1;
+                this.steps = 0;
+            }
 
-            <button id="start-button" class="btn btn-dark btn-block">Start Game</button>
-        </div>
+            observe() {
+                const result = Math.random() * this.telescope;
+                this.observations += result;
+                this.funding -= Math.random() * 100 + 10 * this.telescope;
+                this.log(`${this.name} completed an observation with result: ${result}`);
+            }
 
-        <div class="intro-text">
-            <p><strong>ASTROLIFE Rules:</strong><br>
-            Try to get more score through actions in finite steps.<br>
-            You can see every player's move in the message box.<br>
-            The player with the highest score is the winner.<br>
-            The winner will win the Nobel Prize.<br>
-            Good Luck!</p>
-        </div>
+            research() {
+                if (this.observations === 0) {
+                    this.log(`${this.name} has no data for research.`);
+                    return;
+                }
+                const result = this.observations;
+                this.observations = 0;
+                this.achievements += Math.max(result * (Math.random() * 0.6 + 0.7), 0);
+                this.funding -= Math.random() * 100 + 10 * result;
+                this.log(`${this.name}'s research result: ${result}`);
+            }
 
-        <div class="image-container">
-            <img src="figures/astroboy.png" alt="Astroboy" class="img-fluid" style="max-width: 560px; max-height: 500px;">
-        </div>
+            designTelescope() {
+                this.funding -= Math.random() * 100 + 10 * (Math.pow(10, this.telescope - 1));
+                const newEfficiency = this.telescope * (Math.random() * 0.2 + 1.1);
+                this.telescope = newEfficiency;
+                this.log(`${this.name} designed a new telescope with efficiency: ${newEfficiency}`);
+            }
 
-        <div class="action-buttons">
-            <button class="btn btn-outline-dark" onclick="takeAction('Observe')">Observe</button>
-            <button class="btn btn-outline-dark" onclick="takeAction('Research')">Research</button>
-            <button class="btn btn-outline-dark" onclick="takeAction('Design Telescope')">Design Telescope</button>
-            <button class="btn btn-outline-dark" onclick="takeAction('Apply for Funding')">Apply for Funding</button>
-            <button class="btn btn-outline-dark" onclick="takeAction('Attend Conference')">Attend Conference</button>
-        </div>
+            applyFunding() {
+                if (this.reputation === 0 || this.achievements === 0) {
+                    this.log(`${this.name} cannot apply for funding with zero reputation or achievements.`);
+                    return;
+                }
+                const fundingReceived = Math.random() * 1000 * Math.sqrt(this.reputation) * Math.sqrt(this.achievements) / this.credit;
+                this.credit *= 1.1;
+                this.funding += fundingReceived;
+                this.log(`${this.name} received funding: ${fundingReceived}`);
+            }
 
-        <table class="table table-bordered status-table">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Observations</th>
-                    <th>Funding</th>
-                    <th>Reputation</th>
-                    <th>Telescope</th>
-                    <th>Achievements</th>
-                    <th>Score</th>
-                </tr>
-            </thead>
-            <tbody id="status-table-body">
-                <!-- Player statuses will be dynamically added here -->
-            </tbody>
-        </table>
+            attendConference() {
+                const reputationReceived = Math.random() * Math.sqrt(this.achievements) / this.credit;
+                this.credit *= 1.1;
+                this.reputation += reputationReceived;
+                this.funding -= Math.random() * 10 + 1;
+                this.log(`${this.name} received reputation: ${reputationReceived}`);
+            }
 
-        <div class="author-footer">
-            <p>Author: Jiachen Bai | Version: 0.0</p>
-        </div>
-    </div>
+            getState() {
+                return [this.funding, this.reputation, this.observations, this.telescope, this.achievements, this.credit];
+            }
 
-    <script src="game.js"></script>
+            _getReward() {
+                if (this.funding <= 0) return -Infinity;
+                return Math.log10(this.funding) + this.reputation + this.telescope + this.achievements;
+            }
+
+            _isDone() {
+                return this.steps >= 100;
+            }
+
+            aiAction() {
+                const state = this.getState();
+                const actionIdx = Math.floor(Math.random() * this.actions.length); // Random action for simplicity
+                const bestAction = this.actions[actionIdx];
+
+                switch (bestAction) {
+                    case 'observe':
+                        this.observe();
+                        break;
+                    case 'research':
+                        this.research();
+                        break;
+                    case 'design_telescope':
+                        this.designTelescope();
+                        break;
+                    case 'apply_funding':
+                        this.applyFunding();
+                        break;
+                    case 'attend_conference':
+                        this.attendConference();
+                        break;
+                    default:
+                        break;
+                }
+
+                this.steps += 1;
+            }
+
+            getStatus() {
+                if (this.funding <= 0 || this.reputation <= 0) {
+                    this.score = 0;
+                } else {
+                    this.score = Math.max(Math.log10(this.funding) + this.reputation + this.telescope + this.achievements - 4, 0);
+                }
+                return {
+                    name: this.name,
+                    observations: Math.round(this.observations * 100) / 100,
+                    funding: Math.round(this.funding),
+                    reputation: Math.round(this.reputation * 100) / 100,
+                    telescope: Math.round(this.telescope * 100) / 100,
+                    achievements: Math.round(this.achievements * 100) / 100,
+                    score: Math.round(this.score * 100) / 100
+                };
+            }
+
+            log(message) {
+                const gameLog = document.getElementById('game-log');
+                gameLog.textContent += message + '\n';
+            }
+        }
+
+        const player1 = new Player('Player 1', true);
+        const player2 = new Player('AI Player', false);
+
+        for (let i = 0; i < 100; i++) {
+            player1.aiAction();
+            player2.aiAction();
+            const status1 = player1.getStatus();
+            const status2 = player2.getStatus();
+            player1.log(`\n--- Step ${i + 1} ---`);
+            player1.log(`Player 1 - Observations: ${status1.observations}, Funding: ${status1.funding}, Reputation: ${status1.reputation}`);
+            player1.log(`Player 2 - Observations: ${status2.observations}, Funding: ${status2.funding}, Reputation: ${status2.reputation}`);
+            if (player1._isDone() || player2._isDone()) break;
+        }
+    </script>
 </body>
 </html>
