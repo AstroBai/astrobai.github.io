@@ -41,7 +41,7 @@ body {
 }
 
 a.active {
-    background-color: #4CAF50;
+    background-color: #d3e3fd;    /* #4CAF50; */
     color: white;
 }
 
