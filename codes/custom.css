@@ -1,14 +1,13 @@
 :root {
-    --gh-bg: #f6f8fa;
-    --gh-canvas: #ffffff;
-    --gh-border: #d0d7de;
-    --gh-muted: #57606a;
-    --gh-text: #24292f;
-    --gh-link: #0969da;
-    --gh-link-hover: #0550ae;
-    --gh-accent: #2da44e;
-    --gh-accent-hover: #2c974b;
-    --gh-shadow: 0 1px 3px rgba(27, 31, 36, 0.08), 0 8px 24px rgba(66, 74, 83, 0.12);
+    --wiki-page: #eaecf0;
+    --wiki-bg: #f8f9fa;
+    --wiki-canvas: #ffffff;
+    --wiki-border: #a2a9b1;
+    --wiki-text: #202122;
+    --wiki-muted: #54595d;
+    --wiki-link: #0645ad;
+    --wiki-link-visited: #0b0080;
+    --wiki-link-hover: #3366cc;
 }
 
 * {
@@ -22,110 +21,109 @@ body {
 
 body {
     margin: 0;
-    padding: 24px 16px;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-    font-size: 16px;
-    color: var(--gh-text);
-    background-color: var(--gh-bg);
+    padding: 14px;
+    font-family: sans-serif;
+    font-size: 14px;
+    color: var(--wiki-text);
+    background-color: var(--wiki-page);
     line-height: 1.6;
 }
 
 .container {
-    width: min(1012px, 100%);
+    width: min(1080px, 100%);
     margin: 0 auto;
-    padding: 16px;
-    background: var(--gh-canvas);
-    border: 1px solid var(--gh-border);
-    border-radius: 8px;
-    box-shadow: var(--gh-shadow);
+    padding: 12px;
+    background: var(--wiki-canvas);
+    border: 1px solid var(--wiki-border);
 }
 
 .content {
     width: 100%;
-    margin: 16px auto 0;
-    padding: 24px;
-    background: var(--gh-canvas);
-    border: 1px solid var(--gh-border);
-    border-radius: 8px;
+    margin: 10px auto 0;
+    padding: 16px;
+    background: var(--wiki-canvas);
+    border: 1px solid #c8ccd1;
 }
 
 .topnav {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
-    padding: 10px;
-    border: 1px solid var(--gh-border);
-    border-radius: 8px;
-    background: var(--gh-bg);
+    gap: 4px;
+    padding: 0;
+    border-bottom: 1px solid var(--wiki-border);
+    background: var(--wiki-bg);
 }
 
 .topnav a {
     display: inline-block;
-    padding: 6px 12px;
-    border: 1px solid transparent;
-    border-radius: 6px;
+    padding: 7px 10px;
+    border: 1px solid #c8ccd1;
+    border-bottom: none;
+    border-radius: 2px 2px 0 0;
     text-decoration: none;
     font-size: 14px;
-    font-weight: 500;
-    color: var(--gh-text);
-    transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+    font-weight: 400;
+    color: var(--wiki-link);
+    background: var(--wiki-bg);
 }
 
 .topnav a:hover {
-    background-color: #f3f4f6;
-    border-color: var(--gh-border);
+    color: var(--wiki-link-hover);
+    text-decoration: underline;
 }
 
 a.active {
-    color: #ffffff;
-    background: var(--gh-accent);
-    border-color: rgba(27, 31, 36, 0.15);
-}
-
-a.active:hover {
-    background: var(--gh-accent-hover);
-    border-color: rgba(27, 31, 36, 0.15);
+    color: var(--wiki-text);
+    background: var(--wiki-canvas);
+    border-color: var(--wiki-border);
+    font-weight: 600;
 }
 
 a {
-    color: var(--gh-link);
+    color: var(--wiki-link);
+    text-decoration: underline;
+}
+
+a:visited {
+    color: var(--wiki-link-visited);
 }
 
 a:hover {
-    color: var(--gh-link-hover);
+    color: var(--wiki-link-hover);
 }
 
 h1,
 h2,
 h3 {
     margin-top: 0;
-    color: var(--gh-text);
-    border-bottom: 1px solid #d8dee4;
-    padding-bottom: 0.35em;
+    color: #000000;
+    border-bottom: 1px solid var(--wiki-border);
+    padding-bottom: 0.18em;
+    font-family: "Linux Libertine", Georgia, "Times New Roman", serif;
+    font-weight: 400;
 }
 
 p,
 li {
-    color: var(--gh-text);
+    color: var(--wiki-text);
 }
 
 img {
     max-width: 100%;
-    border-radius: 6px;
+    border: 1px solid #c8ccd1;
 }
 
 pre {
     margin: 16px 0;
-    padding: 16px;
-    border: 1px solid var(--gh-border);
-    border-radius: 6px;
-    background: var(--gh-bg);
+    padding: 12px;
+    border: 1px solid #c8ccd1;
+    background: #f8f9fa;
     overflow-x: auto;
 }
 
 code {
-    font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
-    color: #1f2328;
+    font-family: monospace;
+    color: #202122;
 }
 
 @media (max-width: 960px) {
@@ -142,7 +140,7 @@ code {
     }
 
     .topnav {
-        gap: 6px;
+        gap: 2px;
     }
 }
 

@@ -20,17 +20,15 @@
 
         .gallery-item {
             width: min(320px, 100%);
-            border: 1px solid #d0d7de;
-            border-radius: 8px;
+            border: 1px solid #a2a9b1;
+            border-radius: 0;
             overflow: hidden;
             background: #ffffff;
-            box-shadow: 0 1px 2px rgba(27, 31, 36, 0.08);
-            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            transition: border-color 0.2s ease;
         }
 
         .gallery-item:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(140, 149, 159, 0.2);
+            border-color: #3366cc;
         }
 
         .gallery img {
@@ -44,8 +42,8 @@
         .gallery p {
             text-align: center;
             margin: 12px 0;
-            font-size: 16px;
-            color: #24292f;
+            font-size: 14px;
+            color: #202122;
         }
 
         /* Media queries for responsiveness */

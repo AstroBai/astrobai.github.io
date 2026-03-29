@@ -1,16 +1,11 @@
 :root {
-  --gh-bg: #f6f8fa;
-  --gh-canvas: #ffffff;
-  --gh-border: #d0d7de;
-  --gh-text: #24292f;
-  --gh-muted: #57606a;
-  --gh-btn: #f6f8fa;
-  --gh-btn-hover: #f3f4f6;
-  --gh-green: #2da44e;
-  --gh-green-hover: #2c974b;
-  --gh-blue: #0969da;
-  --gh-blue-hover: #0550ae;
-  --gh-shadow: 0 1px 3px rgba(27, 31, 36, 0.08), 0 8px 24px rgba(66, 74, 83, 0.12);
+  --wiki-page: #eaecf0;
+  --wiki-bg: #f8f9fa;
+  --wiki-canvas: #ffffff;
+  --wiki-border: #a2a9b1;
+  --wiki-text: #202122;
+  --wiki-link: #0645ad;
+  --wiki-link-hover: #3366cc;
 }
 
 * {
@@ -19,38 +14,38 @@
 
 body {
   margin: 0;
-  padding: 24px 16px;
+  padding: 14px;
   min-height: 100%;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-  color: var(--gh-text);
-  background: var(--gh-bg);
+  font-family: sans-serif;
+  font-size: 14px;
+  color: var(--wiki-text);
+  background: var(--wiki-page);
 }
 
 .container {
-  width: min(860px, 100%);
+  width: min(900px, 100%);
   margin: 0 auto;
-  padding: 24px;
-  border: 1px solid var(--gh-border);
-  border-radius: 8px;
-  background: var(--gh-canvas);
-  box-shadow: var(--gh-shadow);
+  padding: 14px;
+  border: 1px solid var(--wiki-border);
+  background: var(--wiki-canvas);
 }
 
 h1 {
   margin-top: 0;
-  margin-bottom: 16px;
-  padding-bottom: 0.3em;
-  border-bottom: 1px solid #d8dee4;
-  font-size: 30px;
+  margin-bottom: 12px;
+  padding-bottom: 0.2em;
+  border-bottom: 1px solid var(--wiki-border);
+  font-family: "Linux Libertine", Georgia, "Times New Roman", serif;
+  font-size: 32px;
+  font-weight: 400;
   text-align: center;
 }
 
 #energyDisplay {
-  margin: 0 0 18px;
+  margin: 0 0 14px;
   padding: 12px;
-  border: 1px solid var(--gh-border);
-  border-radius: 6px;
-  background: var(--gh-bg);
+  border: 1px solid #c8ccd1;
+  background: var(--wiki-bg);
   font-size: 18px;
 }
 
@@ -62,39 +57,40 @@ h1 {
 
 button {
   width: 100%;
-  padding: 10px 14px;
-  border: 1px solid rgba(27, 31, 36, 0.15);
-  border-radius: 6px;
-  background: var(--gh-green);
-  color: #ffffff;
+  padding: 8px 12px;
+  border: 1px solid #a2a9b1;
+  background: var(--wiki-bg);
+  color: var(--wiki-text);
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 400;
   cursor: pointer;
-  transition: background-color 0.15s ease;
+  transition: background-color 0.15s ease, color 0.15s ease;
 }
 
 button:hover {
-  background: var(--gh-green-hover);
+  color: var(--wiki-link-hover);
+  background: #ffffff;
 }
 
 button:disabled {
-  border-color: rgba(27, 31, 36, 0.15);
-  background: #8c959f;
+  border-color: #c8ccd1;
+  color: #72777d;
+  background: #eaecf0;
   cursor: not-allowed;
 }
 
 .itemButton {
-  background: var(--gh-blue);
+  color: var(--wiki-link);
 }
 
 .itemButton:hover {
-  background: var(--gh-blue-hover);
+  color: var(--wiki-link-hover);
 }
 
 #itemList {
   margin-top: 14px;
   padding-top: 10px;
-  border-top: 1px solid #d8dee4;
+  border-top: 1px solid #c8ccd1;
 }
 
 h3 {
