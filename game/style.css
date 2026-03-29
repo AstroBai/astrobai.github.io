@@ -1,15 +1,19 @@
 :root {
-  --am-bg-1: #090a10;
-  --am-bg-2: #141827;
-  --am-bg-3: #1a0f1f;
-  --am-card: rgba(28, 31, 44, 0.68);
-  --am-border: rgba(255, 255, 255, 0.18);
-  --am-text: #f5f7ff;
-  --am-muted: #c2c7d7;
-  --am-accent: #fa2d65;
-  --am-accent-hover: #ff3e76;
-  --am-blue: #6f7cff;
-  --am-blue-hover: #8a94ff;
+  --glass-bg-1: #eaf3ff;
+  --glass-bg-2: #f8f0ff;
+  --glass-bg-3: #eefdfc;
+  --glass-panel: rgba(255, 255, 255, 0.58);
+  --glass-border: rgba(255, 255, 255, 0.74);
+  --glass-text: #152846;
+  --glass-muted: #4d6589;
+  --glass-accent-1: #4ca9ff;
+  --glass-accent-2: #7f8bff;
+  --glass-accent-1-hover: #3d97ea;
+  --glass-accent-2-hover: #6f7beb;
+  --glass-blue-1: #52b5ff;
+  --glass-blue-2: #74a2ff;
+  --glass-blue-1-hover: #43a3ea;
+  --glass-blue-2-hover: #5f8be7;
 }
 
 * {
@@ -22,11 +26,11 @@ body {
   min-height: 100%;
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
   font-size: 16px;
-  color: var(--am-text);
+  color: var(--glass-text);
   background:
-    radial-gradient(circle at 15% 18%, rgba(255, 72, 142, 0.28), transparent 40%),
-    radial-gradient(circle at 78% 15%, rgba(121, 90, 255, 0.25), transparent 38%),
-    linear-gradient(140deg, var(--am-bg-1) 0%, var(--am-bg-2) 52%, var(--am-bg-3) 100%);
+    radial-gradient(circle at 15% 18%, rgba(141, 205, 255, 0.62), transparent 40%),
+    radial-gradient(circle at 78% 15%, rgba(233, 191, 255, 0.5), transparent 38%),
+    linear-gradient(140deg, var(--glass-bg-1) 0%, var(--glass-bg-2) 52%, var(--glass-bg-3) 100%);
   background-attachment: fixed;
 }
 
@@ -34,30 +38,31 @@ body {
   width: min(860px, 100%);
   margin: 0 auto;
   padding: 22px;
-  border: 1px solid var(--am-border);
+  border: 1px solid var(--glass-border);
   border-radius: 24px;
-  background: var(--am-card);
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(18px) saturate(150%);
-  -webkit-backdrop-filter: blur(18px) saturate(150%);
+  background: var(--glass-panel);
+  box-shadow: 0 20px 42px rgba(54, 90, 145, 0.2);
+  backdrop-filter: blur(18px) saturate(160%);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
 }
 
 h1 {
   margin-top: 0;
   margin-bottom: 14px;
   padding-bottom: 0.25em;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.78);
   font-size: 34px;
   font-weight: 700;
+  color: #142949;
   text-align: center;
 }
 
 #energyDisplay {
   margin: 0 0 14px;
   padding: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.72);
   border-radius: 12px;
-  background: rgba(18, 21, 32, 0.7);
+  background: linear-gradient(150deg, rgba(255, 255, 255, 0.78), rgba(241, 248, 255, 0.62));
   font-size: 18px;
 }
 
@@ -70,9 +75,9 @@ h1 {
 button {
   width: 100%;
   padding: 10px 14px;
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.84);
   border-radius: 999px;
-  background: linear-gradient(120deg, var(--am-accent), #ff2d8b);
+  background: linear-gradient(120deg, var(--glass-accent-1), var(--glass-accent-2));
   color: #ffffff;
   font-size: 14px;
   font-weight: 600;
@@ -82,33 +87,33 @@ button {
 
 button:hover {
   transform: translateY(-1px);
-  background: linear-gradient(120deg, var(--am-accent-hover), #ff4e9f);
+  background: linear-gradient(120deg, var(--glass-accent-1-hover), var(--glass-accent-2-hover));
 }
 
 button:disabled {
-  color: #b4b9cb;
-  background: #555d75;
+  color: #98a8c3;
+  background: #cad7ee;
   cursor: not-allowed;
 }
 
 .itemButton {
-  background: linear-gradient(120deg, var(--am-blue), #9b65ff);
+  background: linear-gradient(120deg, var(--glass-blue-1), var(--glass-blue-2));
 }
 
 .itemButton:hover {
-  background: linear-gradient(120deg, var(--am-blue-hover), #aa7dff);
+  background: linear-gradient(120deg, var(--glass-blue-1-hover), var(--glass-blue-2-hover));
 }
 
 #itemList {
   margin-top: 14px;
   padding-top: 10px;
-  border-top: 1px solid rgba(255, 255, 255, 0.16);
+  border-top: 1px solid rgba(255, 255, 255, 0.78);
 }
 
 h3 {
   margin: 0 0 10px;
   font-size: 18px;
-  color: var(--am-muted);
+  color: var(--glass-muted);
 }
 
 @media (max-width: 768px) {
