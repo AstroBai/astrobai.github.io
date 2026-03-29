@@ -20,17 +20,19 @@
 
         .gallery-item {
             width: min(320px, 100%);
-            border: 1px solid #111111;
-            border-radius: 8px;
+            border: 1px solid rgba(148, 163, 188, 0.2);
+            border-radius: 16px;
             overflow: hidden;
-            background: #fafafa;
-            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
-            transition: transform 0.2s ease, border-color 0.2s ease;
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(8px);
+            box-shadow: 0 4px 16px rgba(31, 38, 135, 0.08);
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
         }
 
         .gallery-item:hover {
-            border-color: #005bbb;
-            transform: translateY(-3px);
+            border-color: rgba(59, 130, 246, 0.3);
+            transform: translateY(-6px);
+            box-shadow: 0 12px 24px rgba(59, 130, 246, 0.2);
         }
 
         .gallery img {
@@ -45,8 +47,8 @@
             text-align: center;
             margin: 12px 0;
             font-size: 14px;
-            color: #111111;
-            font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+            color: #1e293b;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
         }
 
         /* Media queries for responsiveness */
