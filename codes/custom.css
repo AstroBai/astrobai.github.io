@@ -1,13 +1,14 @@
 :root {
-    --wiki-page: #eaecf0;
-    --wiki-bg: #f8f9fa;
-    --wiki-canvas: #ffffff;
-    --wiki-border: #a2a9b1;
-    --wiki-text: #202122;
-    --wiki-muted: #54595d;
-    --wiki-link: #0645ad;
-    --wiki-link-visited: #0b0080;
-    --wiki-link-hover: #3366cc;
+    --am-bg-1: #090a10;
+    --am-bg-2: #141827;
+    --am-bg-3: #1a0f1f;
+    --am-card: rgba(28, 31, 44, 0.6);
+    --am-border: rgba(255, 255, 255, 0.16);
+    --am-text: #f5f7ff;
+    --am-muted: #c2c7d7;
+    --am-link: #ff6b97;
+    --am-link-hover: #ff8eb0;
+    --am-shadow: 0 18px 42px rgba(0, 0, 0, 0.38);
 }
 
 * {
@@ -21,109 +22,130 @@ body {
 
 body {
     margin: 0;
-    padding: 14px;
-    font-family: sans-serif;
-    font-size: 14px;
-    color: var(--wiki-text);
-    background-color: var(--wiki-page);
+    padding: 26px 14px;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
+    font-size: 16px;
+    color: var(--am-text);
+    background:
+        radial-gradient(circle at 12% 18%, rgba(255, 72, 142, 0.28), transparent 42%),
+        radial-gradient(circle at 84% 12%, rgba(121, 90, 255, 0.24), transparent 40%),
+        radial-gradient(circle at 48% 86%, rgba(255, 60, 120, 0.22), transparent 45%),
+        linear-gradient(140deg, var(--am-bg-1) 0%, var(--am-bg-2) 52%, var(--am-bg-3) 100%);
+    background-attachment: fixed;
     line-height: 1.6;
 }
 
 .container {
-    width: min(1080px, 100%);
+    width: min(1100px, 97%);
     margin: 0 auto;
-    padding: 12px;
-    background: var(--wiki-canvas);
-    border: 1px solid var(--wiki-border);
+    padding: 14px;
+    background: var(--am-card);
+    border: 1px solid var(--am-border);
+    border-radius: 24px;
+    box-shadow: var(--am-shadow);
+    backdrop-filter: blur(18px) saturate(150%);
+    -webkit-backdrop-filter: blur(18px) saturate(150%);
 }
 
 .content {
     width: 100%;
-    margin: 10px auto 0;
-    padding: 16px;
-    background: var(--wiki-canvas);
-    border: 1px solid #c8ccd1;
+    margin: 14px auto 0;
+    padding: 22px;
+    background: linear-gradient(160deg, rgba(43, 48, 66, 0.72), rgba(27, 31, 45, 0.62));
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 18px;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 .topnav {
     display: flex;
     flex-wrap: wrap;
-    gap: 4px;
-    padding: 0;
-    border-bottom: 1px solid var(--wiki-border);
-    background: var(--wiki-bg);
+    gap: 8px;
+    padding: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 999px;
+    background: rgba(41, 45, 60, 0.68);
 }
 
 .topnav a {
     display: inline-block;
-    padding: 7px 10px;
-    border: 1px solid #c8ccd1;
-    border-bottom: none;
-    border-radius: 2px 2px 0 0;
+    padding: 8px 14px;
+    border: 1px solid transparent;
+    border-radius: 999px;
     text-decoration: none;
     font-size: 14px;
-    font-weight: 400;
-    color: var(--wiki-link);
-    background: var(--wiki-bg);
+    font-weight: 600;
+    color: var(--am-muted);
+    background: transparent;
 }
 
 .topnav a:hover {
-    color: var(--wiki-link-hover);
-    text-decoration: underline;
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.2);
 }
 
 a.active {
-    color: var(--wiki-text);
-    background: var(--wiki-canvas);
-    border-color: var(--wiki-border);
+    color: #ffffff;
+    background: linear-gradient(120deg, #ff375f, #ff2d8b);
+    border-color: rgba(255, 255, 255, 0.24);
     font-weight: 600;
 }
 
 a {
-    color: var(--wiki-link);
-    text-decoration: underline;
-}
-
-a:visited {
-    color: var(--wiki-link-visited);
+    color: var(--am-link);
+    text-decoration: none;
 }
 
 a:hover {
-    color: var(--wiki-link-hover);
+    color: var(--am-link-hover);
 }
 
 h1,
 h2,
 h3 {
     margin-top: 0;
-    color: #000000;
-    border-bottom: 1px solid var(--wiki-border);
-    padding-bottom: 0.18em;
-    font-family: "Linux Libertine", Georgia, "Times New Roman", serif;
-    font-weight: 400;
+    color: #ffffff;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 0.3em;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif;
+    font-weight: 700;
 }
 
 p,
 li {
-    color: var(--wiki-text);
+    color: #e6e9f5;
 }
 
 img {
     max-width: 100%;
-    border: 1px solid #c8ccd1;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 14px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
 }
 
 pre {
     margin: 16px 0;
-    padding: 12px;
-    border: 1px solid #c8ccd1;
-    background: #f8f9fa;
+    padding: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 12px;
+    background: rgba(17, 20, 30, 0.82);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
     overflow-x: auto;
 }
 
 code {
-    font-family: monospace;
-    color: #202122;
+    font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, monospace;
+    color: #ffd3e0;
+}
+
+@supports not ((backdrop-filter: blur(2px)) or (-webkit-backdrop-filter: blur(2px))) {
+    .container,
+    .content,
+    .topnav,
+    pre {
+        background: rgba(30, 34, 48, 0.95);
+    }
 }
 
 @media (max-width: 960px) {
@@ -132,6 +154,8 @@ code {
     }
 
     .container {
+        width: 100%;
+        border-radius: 18px;
         padding: 10px;
     }
 
@@ -140,7 +164,8 @@ code {
     }
 
     .topnav {
-        gap: 2px;
+        border-radius: 16px;
+        gap: 6px;
     }
 }
 

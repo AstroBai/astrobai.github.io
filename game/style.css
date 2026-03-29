@@ -1,11 +1,15 @@
 :root {
-  --wiki-page: #eaecf0;
-  --wiki-bg: #f8f9fa;
-  --wiki-canvas: #ffffff;
-  --wiki-border: #a2a9b1;
-  --wiki-text: #202122;
-  --wiki-link: #0645ad;
-  --wiki-link-hover: #3366cc;
+  --am-bg-1: #090a10;
+  --am-bg-2: #141827;
+  --am-bg-3: #1a0f1f;
+  --am-card: rgba(28, 31, 44, 0.68);
+  --am-border: rgba(255, 255, 255, 0.18);
+  --am-text: #f5f7ff;
+  --am-muted: #c2c7d7;
+  --am-accent: #fa2d65;
+  --am-accent-hover: #ff3e76;
+  --am-blue: #6f7cff;
+  --am-blue-hover: #8a94ff;
 }
 
 * {
@@ -14,38 +18,46 @@
 
 body {
   margin: 0;
-  padding: 14px;
+  padding: 24px 12px;
   min-height: 100%;
-  font-family: sans-serif;
-  font-size: 14px;
-  color: var(--wiki-text);
-  background: var(--wiki-page);
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
+  font-size: 16px;
+  color: var(--am-text);
+  background:
+    radial-gradient(circle at 15% 18%, rgba(255, 72, 142, 0.28), transparent 40%),
+    radial-gradient(circle at 78% 15%, rgba(121, 90, 255, 0.25), transparent 38%),
+    linear-gradient(140deg, var(--am-bg-1) 0%, var(--am-bg-2) 52%, var(--am-bg-3) 100%);
+  background-attachment: fixed;
 }
 
 .container {
-  width: min(900px, 100%);
+  width: min(860px, 100%);
   margin: 0 auto;
-  padding: 14px;
-  border: 1px solid var(--wiki-border);
-  background: var(--wiki-canvas);
+  padding: 22px;
+  border: 1px solid var(--am-border);
+  border-radius: 24px;
+  background: var(--am-card);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(18px) saturate(150%);
+  -webkit-backdrop-filter: blur(18px) saturate(150%);
 }
 
 h1 {
   margin-top: 0;
-  margin-bottom: 12px;
-  padding-bottom: 0.2em;
-  border-bottom: 1px solid var(--wiki-border);
-  font-family: "Linux Libertine", Georgia, "Times New Roman", serif;
-  font-size: 32px;
-  font-weight: 400;
+  margin-bottom: 14px;
+  padding-bottom: 0.25em;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 34px;
+  font-weight: 700;
   text-align: center;
 }
 
 #energyDisplay {
   margin: 0 0 14px;
   padding: 12px;
-  border: 1px solid #c8ccd1;
-  background: var(--wiki-bg);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 12px;
+  background: rgba(18, 21, 32, 0.7);
   font-size: 18px;
 }
 
@@ -57,45 +69,46 @@ h1 {
 
 button {
   width: 100%;
-  padding: 8px 12px;
-  border: 1px solid #a2a9b1;
-  background: var(--wiki-bg);
-  color: var(--wiki-text);
+  padding: 10px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
+  background: linear-gradient(120deg, var(--am-accent), #ff2d8b);
+  color: #ffffff;
   font-size: 14px;
-  font-weight: 400;
+  font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.15s ease, color 0.15s ease;
+  transition: transform 0.15s ease, background-color 0.15s ease;
 }
 
 button:hover {
-  color: var(--wiki-link-hover);
-  background: #ffffff;
+  transform: translateY(-1px);
+  background: linear-gradient(120deg, var(--am-accent-hover), #ff4e9f);
 }
 
 button:disabled {
-  border-color: #c8ccd1;
-  color: #72777d;
-  background: #eaecf0;
+  color: #b4b9cb;
+  background: #555d75;
   cursor: not-allowed;
 }
 
 .itemButton {
-  color: var(--wiki-link);
+  background: linear-gradient(120deg, var(--am-blue), #9b65ff);
 }
 
 .itemButton:hover {
-  color: var(--wiki-link-hover);
+  background: linear-gradient(120deg, var(--am-blue-hover), #aa7dff);
 }
 
 #itemList {
   margin-top: 14px;
   padding-top: 10px;
-  border-top: 1px solid #c8ccd1;
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
 }
 
 h3 {
   margin: 0 0 10px;
   font-size: 18px;
+  color: var(--am-muted);
 }
 
 @media (max-width: 768px) {
@@ -104,6 +117,7 @@ h3 {
   }
 
   .container {
+    border-radius: 18px;
     padding: 14px;
   }
 }
