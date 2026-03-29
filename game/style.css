@@ -1,19 +1,13 @@
 :root {
-  --glass-bg-1: #eaf3ff;
-  --glass-bg-2: #f8f0ff;
-  --glass-bg-3: #eefdfc;
-  --glass-panel: rgba(255, 255, 255, 0.58);
-  --glass-border: rgba(255, 255, 255, 0.74);
-  --glass-text: #152846;
-  --glass-muted: #4d6589;
-  --glass-accent-1: #4ca9ff;
-  --glass-accent-2: #7f8bff;
-  --glass-accent-1-hover: #3d97ea;
-  --glass-accent-2-hover: #6f7beb;
-  --glass-blue-1: #52b5ff;
-  --glass-blue-2: #74a2ff;
-  --glass-blue-1-hover: #43a3ea;
-  --glass-blue-2-hover: #5f8be7;
+  --wiki-page: #eaecf0;
+  --wiki-canvas: #ffffff;
+  --wiki-panel: #f8f9fa;
+  --wiki-border: #a2a9b1;
+  --wiki-soft-border: #c8ccd1;
+  --wiki-text: #202122;
+  --wiki-muted: #54595d;
+  --wiki-link: #0645ad;
+  --wiki-link-hover: #3366cc;
 }
 
 * {
@@ -24,45 +18,39 @@ body {
   margin: 0;
   padding: 24px 12px;
   min-height: 100%;
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
-  font-size: 16px;
-  color: var(--glass-text);
-  background:
-    radial-gradient(circle at 15% 18%, rgba(141, 205, 255, 0.62), transparent 40%),
-    radial-gradient(circle at 78% 15%, rgba(233, 191, 255, 0.5), transparent 38%),
-    linear-gradient(140deg, var(--glass-bg-1) 0%, var(--glass-bg-2) 52%, var(--glass-bg-3) 100%);
-  background-attachment: fixed;
+  font-family: sans-serif;
+  font-size: 14px;
+  color: var(--wiki-text);
+  background: var(--wiki-page);
 }
 
 .container {
-  width: min(860px, 100%);
+  width: min(920px, 100%);
   margin: 0 auto;
-  padding: 22px;
-  border: 1px solid var(--glass-border);
-  border-radius: 24px;
-  background: var(--glass-panel);
-  box-shadow: 0 20px 42px rgba(54, 90, 145, 0.2);
-  backdrop-filter: blur(18px) saturate(160%);
-  -webkit-backdrop-filter: blur(18px) saturate(160%);
+  padding: 16px;
+  border: 1px solid var(--wiki-border);
+  border-radius: 12px;
+  background: var(--wiki-canvas);
 }
 
 h1 {
   margin-top: 0;
   margin-bottom: 14px;
   padding-bottom: 0.25em;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.78);
-  font-size: 34px;
-  font-weight: 700;
-  color: #142949;
+  border-bottom: 1px solid var(--wiki-border);
+  font-family: "Linux Libertine", Georgia, "Times New Roman", serif;
+  font-size: 32px;
+  font-weight: 400;
+  color: #000000;
   text-align: center;
 }
 
 #energyDisplay {
   margin: 0 0 14px;
   padding: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.72);
-  border-radius: 12px;
-  background: linear-gradient(150deg, rgba(255, 255, 255, 0.78), rgba(241, 248, 255, 0.62));
+  border: 1px solid var(--wiki-soft-border);
+  border-radius: 10px;
+  background: var(--wiki-panel);
   font-size: 18px;
 }
 
@@ -75,45 +63,45 @@ h1 {
 button {
   width: 100%;
   padding: 10px 14px;
-  border: 1px solid rgba(255, 255, 255, 0.84);
-  border-radius: 999px;
-  background: linear-gradient(120deg, var(--glass-accent-1), var(--glass-accent-2));
-  color: #ffffff;
+  border: 1px solid var(--wiki-border);
+  border-radius: 10px;
+  background: var(--wiki-panel);
+  color: var(--wiki-text);
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 500;
   cursor: pointer;
   transition: transform 0.15s ease, background-color 0.15s ease;
 }
 
 button:hover {
-  transform: translateY(-1px);
-  background: linear-gradient(120deg, var(--glass-accent-1-hover), var(--glass-accent-2-hover));
+  color: var(--wiki-link-hover);
+  background: #ffffff;
 }
 
 button:disabled {
-  color: #98a8c3;
-  background: #cad7ee;
+  color: #72777d;
+  background: #eaecf0;
   cursor: not-allowed;
 }
 
 .itemButton {
-  background: linear-gradient(120deg, var(--glass-blue-1), var(--glass-blue-2));
+  color: var(--wiki-link);
 }
 
 .itemButton:hover {
-  background: linear-gradient(120deg, var(--glass-blue-1-hover), var(--glass-blue-2-hover));
+  color: var(--wiki-link-hover);
 }
 
 #itemList {
   margin-top: 14px;
   padding-top: 10px;
-  border-top: 1px solid rgba(255, 255, 255, 0.78);
+  border-top: 1px solid var(--wiki-soft-border);
 }
 
 h3 {
   margin: 0 0 10px;
   font-size: 18px;
-  color: var(--glass-muted);
+  color: var(--wiki-muted);
 }
 
 @media (max-width: 768px) {
@@ -122,7 +110,6 @@ h3 {
   }
 
   .container {
-    border-radius: 18px;
     padding: 14px;
   }
 }

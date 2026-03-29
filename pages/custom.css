@@ -1,18 +1,13 @@
 :root {
-    --glass-bg-1: #eaf3ff;
-    --glass-bg-2: #f8f0ff;
-    --glass-bg-3: #eefdfc;
-    --glass-panel: rgba(255, 255, 255, 0.52);
-    --glass-panel-strong: rgba(255, 255, 255, 0.7);
-    --glass-border: rgba(255, 255, 255, 0.72);
-    --glass-text: #152846;
-    --glass-muted: #4d6589;
-    --glass-link: #2066d5;
-    --glass-link-hover: #154ea6;
-    --glass-accent-1: #4ca9ff;
-    --glass-accent-2: #7f8bff;
-    --glass-shadow-lg: 0 20px 50px rgba(54, 90, 145, 0.2);
-    --glass-shadow-sm: 0 10px 24px rgba(47, 86, 143, 0.14);
+    --wiki-page: #eaecf0;
+    --wiki-canvas: #ffffff;
+    --wiki-panel: #f8f9fa;
+    --wiki-border: #a2a9b1;
+    --wiki-soft-border: #c8ccd1;
+    --wiki-text: #202122;
+    --wiki-muted: #54595d;
+    --wiki-link: #0645ad;
+    --wiki-link-hover: #3366cc;
 }
 
 * {
@@ -29,105 +24,101 @@ body {
     padding: 26px 14px;
     font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
     font-size: 16px;
-    color: var(--glass-text);
-    background:
-        radial-gradient(circle at 14% 18%, rgba(141, 205, 255, 0.62), transparent 42%),
-        radial-gradient(circle at 84% 16%, rgba(233, 191, 255, 0.52), transparent 40%),
-        radial-gradient(circle at 48% 86%, rgba(166, 248, 235, 0.46), transparent 44%),
-        linear-gradient(140deg, var(--glass-bg-1) 0%, var(--glass-bg-2) 52%, var(--glass-bg-3) 100%);
-    background-attachment: fixed;
+    color: var(--wiki-text);
+    background: var(--wiki-page);
     line-height: 1.6;
 }
 
 .container {
-    width: min(1100px, 97%);
+    width: min(1320px, 100%);
     margin: 0 auto;
     padding: 14px;
-    background: var(--glass-panel);
-    border: 1px solid var(--glass-border);
-    border-radius: 24px;
-    box-shadow: var(--glass-shadow-lg);
-    backdrop-filter: blur(18px) saturate(150%);
-    -webkit-backdrop-filter: blur(18px) saturate(150%);
+    display: grid;
+    grid-template-columns: 250px minmax(0, 1fr);
+    gap: 14px;
+    background: var(--wiki-canvas);
+    border: 1px solid var(--wiki-border);
+    border-radius: 14px;
 }
 
 .content {
+    grid-column: 2;
     width: 100%;
-    margin: 14px auto 0;
-    padding: 22px;
-    background: linear-gradient(160deg, rgba(255, 255, 255, 0.66), rgba(255, 255, 255, 0.38));
-    border: 1px solid rgba(255, 255, 255, 0.72);
-    border-radius: 18px;
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8), var(--glass-shadow-sm);
+    margin: 0;
+    padding: 18px;
+    background: var(--wiki-canvas);
+    border: 1px solid var(--wiki-soft-border);
+    border-radius: 12px;
 }
 
 .topnav {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    padding: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.72);
-    border-radius: 999px;
-    background: linear-gradient(120deg, rgba(255, 255, 255, 0.76), rgba(255, 255, 255, 0.48));
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.86), var(--glass-shadow-sm);
+    grid-column: 1;
+    align-self: start;
+    position: sticky;
+    top: 16px;
+    display: block;
+    padding: 10px;
+    border: 1px solid var(--wiki-soft-border);
+    border-radius: 12px;
+    background: var(--wiki-panel);
 }
 
 .topnav a {
-    display: inline-block;
-    padding: 8px 14px;
+    display: block;
+    margin-bottom: 6px;
+    padding: 8px 10px;
     border: 1px solid transparent;
-    border-radius: 999px;
+    border-radius: 8px;
     text-decoration: none;
     font-size: 14px;
-    font-weight: 600;
-    color: var(--glass-muted);
+    font-weight: 500;
+    color: var(--wiki-link);
     background: transparent;
 }
 
 .topnav a:hover {
-    color: #0e2a52;
-    background: rgba(255, 255, 255, 0.78);
-    border-color: rgba(255, 255, 255, 0.84);
+    color: var(--wiki-link-hover);
+    text-decoration: underline;
+    background: #ffffff;
+    border-color: var(--wiki-soft-border);
 }
 
 a.active {
-    color: #ffffff;
-    background: linear-gradient(120deg, var(--glass-accent-1), var(--glass-accent-2));
-    border-color: rgba(255, 255, 255, 0.84);
+    color: var(--wiki-text);
+    background: #ffffff;
+    border-color: var(--wiki-border);
     font-weight: 600;
-    box-shadow: 0 8px 22px rgba(86, 125, 208, 0.3);
 }
 
 a {
-    color: var(--glass-link);
-    text-decoration: none;
+    color: var(--wiki-link);
+    text-decoration: underline;
 }
 
 a:hover {
-    color: var(--glass-link-hover);
+    color: var(--wiki-link-hover);
 }
 
 h1,
 h2,
 h3 {
     margin-top: 0;
-    color: #142949;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.78);
-    padding-bottom: 0.3em;
-    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif;
-    font-weight: 700;
+    color: #000000;
+    border-bottom: 1px solid var(--wiki-border);
+    padding-bottom: 0.18em;
+    font-family: "Linux Libertine", Georgia, "Times New Roman", serif;
+    font-weight: 400;
 }
 
 p,
 li {
-    color: #27446f;
+    color: var(--wiki-text);
 }
 
 img {
     max-width: 100%;
-    border: 1px solid rgba(255, 255, 255, 0.7);
-    border-radius: 14px;
-    box-shadow: 0 10px 22px rgba(60, 97, 151, 0.2);
+    border: 1px solid var(--wiki-soft-border);
+    border-radius: 10px;
 }
 
 table {
@@ -138,23 +129,14 @@ table {
     margin-top: 16px;
     padding: 12px;
     text-align: center;
-    border: 1px solid rgba(255, 255, 255, 0.72);
-    background: var(--glass-panel-strong);
-    border-radius: 14px;
+    border: 1px solid var(--wiki-soft-border);
+    background: var(--wiki-panel);
+    border-radius: 10px;
 }
 
 .footer a {
-    color: var(--glass-muted);
+    color: var(--wiki-muted);
     text-decoration: none;
-}
-
-@supports not ((backdrop-filter: blur(2px)) or (-webkit-backdrop-filter: blur(2px))) {
-    .container,
-    .content,
-    .topnav,
-    .footer {
-        background: rgba(255, 255, 255, 0.92);
-    }
 }
 
 @media (max-width: 960px) {
@@ -163,17 +145,26 @@ table {
     }
 
     .container {
-        width: 100%;
-        border-radius: 18px;
+        grid-template-columns: 1fr;
         padding: 10px;
     }
 
-    .content {
-        padding: 14px;
+    .topnav {
+        grid-column: 1;
+        position: static;
+        display: flex;
+        gap: 6px;
+        overflow-x: auto;
+        white-space: nowrap;
     }
 
-    .topnav {
-        border-radius: 16px;
-        gap: 6px;
+    .topnav a {
+        margin-bottom: 0;
+        flex: 0 0 auto;
+    }
+
+    .content {
+        grid-column: 1;
+        padding: 14px;
     }
 }
