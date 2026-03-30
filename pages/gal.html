@@ -18,27 +18,17 @@
             margin-right: 0;
         }
 
-        .gallery {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 20px;
-            margin-right: 0;
-        }
-
         .gallery-item {
             width: min(320px, 100%);
-            border: 1px solid #ddd;
-            border-radius: 4px;
+            border: 1px solid #d9d9d9;
             overflow: hidden;
             background: #fff;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
             transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
         .gallery-item:hover {
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
             transform: translateY(-2px);
         }
 
@@ -56,22 +46,6 @@
             font-size: 14px;
             color: #333;
             font-family: Arial, sans-serif;
-        }
-
-        .gallery img {
-            width: 100%;
-            aspect-ratio: 4 / 3;
-            object-fit: cover;
-            height: auto;
-            display: block;
-        }
-
-        .gallery p {
-            text-align: center;
-            margin: 12px 0;
-            font-size: 14px;
-            color: #1e293b;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
         }
 
         /* Media queries for responsiveness */

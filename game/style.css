@@ -8,57 +8,60 @@ body {
 }
 
 body {
-    font-family: 'Arial', sans-serif;
-    margin: 10px;
-    height: 100%;
-    color: #333;
+    margin: 0;
+    min-height: 100%;
+    font-family: Arial, sans-serif;
+    color: #3e3e3e;
+    background: #ececec;
+    line-height: 1.6;
 }
 
 .container {
-    width: 70%;
+    width: min(900px, calc(100% - 32px));
     margin: 0 auto;
-    padding: 20px;
-    background-color: #f8f8f8;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 18px;
+    padding: 22px;
+    border: 1px solid #d4d4d4;
+    background: #f6f6f6;
 }
 
 .content {
     width: 100%;
-    margin: 20px auto;
+    margin: 14px auto;
     padding: 20px;
 }
 
 .topnav {
     overflow: hidden;
-    background-color: #333;
-    border-radius: 4px;
-    margin-bottom: 20px;
+    background: transparent;
+    border-bottom: 1px solid #d4d4d4;
+    margin-bottom: 12px;
 }
 
 .topnav a {
     float: left;
     display: block;
-    color: #f2f2f2;
+    color: #7c7c7c;
     text-align: center;
-    padding: 14px 16px;
+    padding: 4px 8px;
     text-decoration: none;
-    transition: background-color 0.3s ease;
+    font-size: 12px;
+    border-bottom: 2px solid transparent;
 }
 
 .topnav a:hover {
-    background-color: #ddd;
-    color: black;
+    color: #444444;
+    border-bottom-color: #bfbfbf;
 }
 
 a.active {
-    background-color: #4CAF50;
-    color: white;
+    color: #333333;
+    border-bottom-color: #8e8e8e;
 }
 
 a {
-    color: #4CAF50;
+    color: #2f5fb8;
     text-decoration: none;
-    transition: color 0.2s ease;
 }
 
 a:hover {
@@ -66,16 +69,15 @@ a:hover {
 }
 
 h1 {
-    color: #333;
+    color: #2f2f2f;
     margin-top: 0;
-    margin-bottom: 10px;
-    text-align: center;
+    margin-bottom: 14px;
+    font-size: 30px;
 }
 
 #energyDisplay {
-    background: #fff;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+    background: #ffffff;
+    border: 1px solid #dddddd;
     padding: 10px;
     margin: 10px 0;
     font-size: 14px;
@@ -90,19 +92,19 @@ h1 {
 button {
     padding: 10px 14px;
     border: 1px solid #ddd;
-    border-radius: 4px;
-    background: #f8f8f8;
+    background: #ffffff;
     color: #333;
     font-size: 14px;
     font-weight: 500;
     cursor: pointer;
-    transition: all 0.2s ease;
+    text-align: left;
+    transition: background 0.2s ease, color 0.2s ease;
 }
 
 button:hover {
-    background: #4CAF50;
-    color: white;
-    border-color: #4CAF50;
+    background: #f2f2f2;
+    color: #222222;
+    border-color: #c9c9c9;
 }
 
 button:disabled {
@@ -111,7 +113,7 @@ button:disabled {
 }
 
 .itemButton {
-    color: #4CAF50;
+    color: #2f5fb8;
     margin: 4px;
 }
 
@@ -122,7 +124,7 @@ button:disabled {
 }
 
 h3 {
-    color: #666;
+    color: #505050;
     margin: 10px 0;
     font-size: 14px;
 }
@@ -132,7 +134,7 @@ h3 {
     padding: 15px;
     text-align: center;
     margin-top: 30px;
-    border-radius: 4px;
+    border: 1px solid #dddddd;
     font-size: 12px;
 }
 
@@ -143,12 +145,12 @@ h3 {
 }
 
 .footer a:hover {
-    color: #4CAF50;
+    color: #2f5fb8;
 }
 
 @media (max-width: 768px) {
     .container {
-        width: 90%;
+        width: calc(100% - 12px);
         padding: 15px;
     }
 
