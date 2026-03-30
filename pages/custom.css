@@ -51,7 +51,7 @@ body {
 }
 
 .topnav::before {
-    content: "Jiachen Bai Homepage";
+    content: "Jiachen Bai";
     margin-right: auto;
     color: #5a5a5a;
     font-size: 30px;
